@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solange Quispe &mdash; Digital Communications Specialist</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--green:#2D6A4F;--green-dark:#1B4332;--green-light:#E1F5EE;--green-mid:#52B788;--cream:#FAFAF6;--dark:#111;--gray:#666;--border:#E5E5E0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--dark);}
+nav{position:fixed;top:0;width:100%;background:rgba(17,17,17,0.93);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;z-index:200;}
+.nav-logo{font-size:15px;font-weight:600;color:#fff;text-decoration:none;transition:color .15s;display:block;cursor:pointer;}
+.nav-logo:hover{color:var(--green-mid);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color .15s;}
+.nav-links a:hover{color:#fff;}
+.nav-links a.active{color:var(--green-mid);font-weight:600;}
+.hero{min-height:100vh;background:var(--green-dark);display:flex;align-items:center;padding:100px 40px 60px;}
+.hero-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:center;width:100%;}
+.hero-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green-mid);background:rgba(82,183,136,0.15);padding:5px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(82,183,136,0.3);}
+.hero h1{font-size:56px;font-weight:800;letter-spacing:-2px;line-height:1.05;color:#fff;margin-bottom:8px;}
+.hero h1 span{color:var(--green-mid);}
+.hero-subtitle{font-size:17px;color:rgba(255,255,255,0.55);margin-bottom:16px;}
+.hero-email{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px;letter-spacing:0.01em;}
+.hero-email a{color:rgba(255,255,255,0.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:1px;transition:color .15s;}
+.hero-email a:hover{color:#fff;border-color:rgba(255,255,255,0.5);}
+.hero-bio{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:32px;max-width:500px;}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;}
+.btn-primary{background:var(--green-mid);color:#fff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:8px;text-decoration:none;transition:opacity .15s;}
+.btn-primary:hover{opacity:.85;}
+.btn-wa{background:rgba(255,255,255,0.1);color:#fff;font-size:14px;font-weight:500;padding:12px 22px;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,.25);transition:all .15s;}
+.btn-wa:hover{background:rgba(255,255,255,0.18);}
+.btn-tel{background:transparent;color:rgba(255,255,255,0.7);font-size:13px;font-weight:400;padding:12px 18px;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,.15);transition:all .15s;letter-spacing:0.03em;}
+.btn-tel:hover{color:#fff;border-color:rgba(255,255,255,.35);}
+.hero-stats{display:flex;gap:32px;}
+.stat-num{font-size:28px;font-weight:700;color:#fff;line-height:1;}
+.stat-label{font-size:12px;color:rgba(255,255,255,.45);margin-top:4px;}
+.hero-photo{width:320px;height:320px;border-radius:50%;object-fit:cover;object-position:center top;border:4px solid rgba(82,183,136,0.4);display:block;margin:0 auto;}
+.container{max-width:960px;margin:0 auto;padding:0 40px;}
+section{padding:80px 0;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.section-title{font-size:32px;font-weight:700;letter-spacing:-0.5px;color:var(--dark);margin-bottom:40px;}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.1);}
+.card-img{width:100%;height:180px;object-fit:cover;display:block;}
+.card-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;gap:8px;}
+.card-tag{font-size:11px;font-weight:600;text-transform:uppercase;color:var(--green);background:var(--green-light);padding:3px 9px;border-radius:4px;display:inline-block;width:fit-content;}
+.card h3{font-size:15px;font-weight:600;line-height:1.4;}
+.card p{font-size:13px;color:var(--gray);line-height:1.6;flex:1;}
+.card-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.link-btn{font-size:12px;color:var(--green);border:1px solid var(--green-light);background:var(--green-light);border-radius:6px;padding:5px 11px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:all .15s;font-weight:500;}
+.link-btn:hover{background:var(--green);color:#fff;border-color:var(--green);}
+.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;}
+.case-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;transition:transform .2s,box-shadow .2s;}
+.case-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.1);}
+.case-title{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.case-meta{font-size:11px;color:var(--green);font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em;}
+.case-desc{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:12px;}
+.case-stat{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--border);margin-top:8px;}
+.case-stat:first-of-type{border-top:none;margin-top:0;}
+.case-stat-label{font-size:10px;color:var(--gray);text-transform:uppercase;font-weight:600;letter-spacing:.04em;}
+.case-stat-value{font-size:13px;font-weight:700;color:var(--green);}
+.case-link{font-size:11px;color:var(--green);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-weight:500;}
+.case-link:hover{text-decoration:underline;}
+.cine-section{background:var(--green-dark);}
+.cine-section .section-label{color:var(--green-mid);}
+.cine-section .section-title{color:#fff;}
+.cine-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+.cine-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;}
+.cine-badge{font-size:11px;font-weight:600;color:#F6D860;background:rgba(246,216,96,.12);padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:12px;border:1px solid rgba(246,216,96,.25);}
+.cine-card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:8px;line-height:1.4;}
+.cine-card p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.65;}
+.cine-link{font-size:12px;color:var(--green-mid);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-weight:500;}
+.cine-link:hover{text-decoration:underline;}
+.skills-section{background:#fff;}
+.skills-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;}
+.skill-item{font-size:14px;color:var(--gray);display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.skill-item::before{content:'';width:6px;height:6px;background:var(--green-mid);border-radius:50%;flex-shrink:0;}
+.skill-group h4{font-size:13px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;}
+.contact-box{background:var(--green);border-radius:20px;padding:60px;text-align:center;}
+.contact-box h2{font-size:32px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-.5px;}
+.contact-box p{font-size:16px;color:rgba(255,255,255,.7);margin-bottom:32px;}
+.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.contact-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--green);font-size:14px;font-weight:600;padding:13px 28px;border-radius:10px;text-decoration:none;transition:opacity .15s;}
+.contact-btn:hover{opacity:.9;}
+.contact-btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);}
+footer{text-align:center;padding:32px;font-size:13px;color:var(--gray);}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;}
+.fade-in.visible{opacity:1;transform:none;}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;}.hero-photo{display:none;}.hero h1{font-size:38px;}.container{padding:0 20px;}nav{padding:0 20px;}.contact-box{padding:36px 20px;}.hero-cta{flex-direction:column;align-items:flex-start;}.case-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Solange Quispe</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#cases">Featured Cases</a></li>
+    <li><a href="#film">Film</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="https://api.whatsapp.com/send?phone=51959164303&text=Hi%20Solange%2C%20how%20are%20you%3F%0AI%20checked%20out%20your%20profile%20and%20I%20think%20your%20marketing%20and%20communications%20experience%20could%20be%20a%20great%20fit%20for%20an%20opportunity%20we%20have.%0ACan%20I%20share%20more%20details%20with%20you%3F" target="_blank">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Professional Portfolio &middot; Lima, Peru</div>
+      <h1>Solange<br><span>Quispe</span></h1>
+      <p class="hero-subtitle">Digital Communications Specialist & Content Strategist</p>
+      <p class="hero-email">✉ <a href="mailto:qsolangedelrosario@gmail.com">qsolangedelrosario@gmail.com</a> &nbsp;&middot;&nbsp; <a href="https://www.linkedin.com/in/solange-quispe-fernandez/" target="_blank">LinkedIn ↗</a></p>
+      <p class="hero-bio">Over 7 years combining audiovisual storytelling, content strategy, and digital marketing across B2B and B2C environments. I've worked with brands like McDonald's and North Star, developing consumer-facing campaigns and managing strategic communications for companies.</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#projects">View Projects</a>
+        <a class="btn-wa" href="https://wa.link/wh0rks" target="_blank">WhatsApp ↗</a>
+        <a class="btn-tel" href="tel:+51959164303">+51 959 164 303</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">7+</div><div class="stat-label">years of experience</div></div>
+        <div class="stat"><div class="stat-num">+8</div><div class="stat-label">brands & companies</div></div>
+        <div class="stat"><div class="stat-num">3</div><div class="stat-label">film festivals</div></div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;">
+      <img src="images/perfil.png" class="hero-photo" alt="Solange Quispe">
+    </div>
+  </div>
+</div>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Selected Work</div>
+    <div class="section-title">Featured Projects</div>
+    <div class="projects-grid">
+      <div class="card fade-in">
+        <img src="images/north-star.png" class="card-img" alt="North Star">
+        <div class="card-body">
+          <span class="card-tag">Digital Campaign</span>
+          <h3>Audiovisual Campaign for North Star</h3>
+          <p>Strategy execution and audiovisual content. 30-day content calendar produced in 2-3 intensive shooting days.</p>
+          <div class="card-links">
+            <a class="link-btn" href="https://www.tiktok.com/@northstarperu/video/7439898694532582712" target="_blank">View ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="images/Mcd-tikok.jpg" class="card-img" alt="McDonald's">
+        <div class="card-body">
+          <span class="card-tag">Content Strategy</span>
+          <h3>Planning and Audiovisual Production for TikTok and Instagram</h3>
+          <p>Cross-functional coordination, calendar management, and content strategy execution for McDonald's.</p>
+          <div class="card-links">
+            <a class="link-btn" href="https://vt.tiktok.com/ZSCfjRpet/" target="_blank">View ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="images/Somos-cooltura.jpg" class="card-img" alt="Somos Cultura">
+        <div class="card-body">
+          <span class="card-tag">Digital Strategy</span>
+          <h3>Strategy and Audiovisual Production</h3>
+          <p>On-location shoot in Cusco. Talent casting and audiovisual filming completed in a single day. +100k organic views on TikTok.</p>
+          <div class="card-links">
+            <a class="link-btn" href="https://vt.tiktok.com/ZSCf8U4jq/" target="_blank">View ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="images/informatica-delta-1.png" class="card-img" alt="Informática Delta">
+        <div class="card-body">
+          <span class="card-tag">Corporate Communications</span>
+          <h3>Production and Direction of Corporate Audiovisual Pieces. Visual Identity</h3>
+          <p>Internal and external communications with a strategic focus on brand identity.</p>
+          <div class="card-links">
+            <a class="link-btn" href="https://www.youtube.com/watch?v=fAL1IkUD6gw" target="_blank">Spot ↗</a>
+            <a class="link-btn" href="https://www.youtube.com/watch?v=TevMsRsy0mI" target="_blank">Anniversary ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="images/tilsa.png" class="card-img" alt="Interviews">
+        <div class="card-body">
+          <span class="card-tag">Audiovisual Content</span>
+          <h3>Production of Interviews and Campaign Pieces with Public Figures</h3>
+          <p>Ellen Lohr & Tilsa Lozano.</p>
+          <div class="card-links">
+            <a class="link-btn" href="https://www.youtube.com/watch?v=IIgSSV5NvE8" target="_blank">Ellen ↗</a>
+            <a class="link-btn" href="https://youtube.com/watch?v=_bGvuQfhUaM" target="_blank">Tilsa ↗</a>
+            <a class="link-btn" href="https://www.youtube.com/watch?v=qBe9SHUYhyE" target="_blank">Campaign ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <img src="images/Viringo.png" class="card-img" alt="Multi-brand content">
+        <div class="card-body">
+          <span class="card-tag">Digital Content</span>
+          <h3>Audiovisual Production for Multiple Brands</h3>
+          <p>Reels and videos for Viringo, InOrder, Doña María. Strategic content for diverse brands.</p>
+          <div class="card-links">
+            <a class="link-btn" href="https://www.instagram.com/p/CUv3gvvns0XE/" target="_blank">Viringo ↗</a>
+            <a class="link-btn" href="https://drive.google.com/drive/folders/1AxzIa3OnEkRKXYDtuhFdN5tECo_h_mHC" target="_blank">InOrder ↗</a>
+            <a class="link-btn" href="https://drive.google.com/drive/folders/1qLrBzViVkWmtYp_yv8tbphdWgaAmLLUJ" target="_blank">Doña María ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="container">
+    <div class="section-label">Featured Experiences</div>
+    <div class="section-title">Featured Cases</div>
+    <div class="case-grid fade-in">
+      <div class="case-card">
+        <img src="images/Moises-Huaraya.png" style="width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:12px;" alt="Moisés Huaraya">
+        <div class="case-meta">Interview in Cusco • 2024</div>
+        <div class="case-title">Moisés Huaraya Interview — End-to-End Production</div>
+        <p class="case-desc">Full coordination of an interview in Cusco. Question structure, trip logistics, and audiovisual production. Strategic multimedia content for multiple platforms.</p>
+        <div class="case-stat">
+          <span class="case-stat-label">My Role</span>
+          <span class="case-stat-value">Coordinator + Structure + Production</span>
+        </div>
+        <div class="case-stat">
+          <span class="case-stat-label">Location</span>
+          <span class="case-stat-value">Cusco</span>
+        </div>
+        <a class="case-link" href="https://www.instagram.com/reels/DBU8cR-Axdo/" target="_blank">View on Instagram ↗</a>
+      </div>
+
+      <div class="case-card">
+        <img src="images/Somo-delta.png" style="width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:12px;" alt="Somos Delta">
+        <div class="case-meta">Informática Delta S.A.C. • 2020-2026</div>
+        <div class="case-title">"Somos Delta" Campaign — Corporate Humanization</div>
+        <p class="case-desc">Design, production, and execution of a full corporate humanization audiovisual campaign. Led solo from concept through final delivery. Exponential growth in engagement and social visibility.</p>
+        <div class="case-stat">
+          <span class="case-stat-label">Organic Growth</span>
+          <span class="case-stat-value">900 → 4,600+ followers</span>
+        </div>
+        <div class="case-stat">
+          <span class="case-stat-label">Frequency</span>
+          <span class="case-stat-value">12-16 articles/month + 3 weekly posts</span>
+        </div>
+        <a class="case-link" href="https://youtu.be/ZE7hPOVAFUU?si=yR6rpPnmeCUHWdpp" target="_blank">Watch Antonieta ↗</a>
+      </div>
+
+      <div class="case-card">
+        <img src="images/bt21.jpg" style="width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:12px;" alt="BT21">
+        <div class="case-meta">Serotonina I.E.R.L. • 2024</div>
+        <div class="case-title">BT21 Campaign — K-pop Curation & Influencer Marketing</div>
+        <p class="case-desc">Content curation as a K-pop and BT21 expert. Precision oversight of brand narrative, identification of key influencers, and calendar optimization on TikTok and Instagram.</p>
+        <div class="case-stat">
+          <span class="case-stat-label">Result</span>
+          <span class="case-stat-value">Team's best productivity month</span>
+        </div>
+        <div class="case-stat">
+          <span class="case-stat-label">Platforms</span>
+          <span class="case-stat-value">TikTok & Instagram</span>
+        </div>
+        <a class="case-link" href="https://www.instagram.com/p/C_tuGgHSznN/?igsh=MWo1czh3Z2c3MzF1aA==" target="_blank">View on Instagram ↗</a>
+      </div>
+
+      <div class="case-card">
+        <img src="images/lobel.png" style="width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:12px;" alt="LOBEL">
+        <div class="case-meta">Music Video • 2024</div>
+        <div class="case-title">LOBEL Music Video — "Lo que me hacía bien"</div>
+        <p class="case-desc">Audiovisual production as field producer. Shoot coordination, on-set logistics, and production direction for a music video by Argentine singer LOBEL.</p>
+        <div class="case-stat">
+          <span class="case-stat-label">My Role</span>
+          <span class="case-stat-value">Field Producer</span>
+        </div>
+        <a class="case-link" href="https://www.youtube.com/watch?v=WMjty6Ki6jA" target="_blank">View on YouTube ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="film" class="cine-section">
+  <div class="container">
+    <div class="section-label">Film Background</div>
+    <div class="section-title">Film & Festivals</div>
+    <div class="cine-grid">
+      <div class="cine-card fade-in">
+        <div class="cine-badge">🏆 Award — Ojo Móvil Fest</div>
+        <h3>El retrato de una soledad en cuarentena</h3>
+        <p>Assistant Director on this short film by No hay Banda Films (2020), shot entirely over Zoom between Peru and Malaysia in Spanish, English, and Chinese. Winner at the Ojo Móvil International Film Festival.</p>
+        <a class="cine-link" href="https://www.imdb.com/title/tt12739888/" target="_blank">View on IMDB ↗</a>
+      </div>
+      <div class="cine-card fade-in">
+        <div class="cine-badge">🎬 Official Selection</div>
+        <h3>Women's Film Festival — Peru</h3>
+        <p>Original short film selected for the first film festival made by women in Peru.</p>
+        <a class="cine-link" href="https://youtu.be/DFsoCPCNoZg?si=RVzcPLQv22njhdpH" target="_blank">View on YouTube ↗</a>
+      </div>
+      <div class="cine-card fade-in">
+        <div class="cine-badge">📋 Lab</div>
+        <h3>Cortos en Proceso — European Film Festival of Lima</h3>
+        <p>Participant in the film project development lab at the European Film Festival of Lima.</p>
+        <a class="cine-link" href="https://dafo.cultura.pe/convocatorias/cerrada-convocatoria-cortos-en-proceso-laboratorio-de-creacion-y-direccion" target="_blank">View Call for Entries ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="section-label">Expertise</div>
+    <div class="section-title">Skills & Tools</div>
+    <div class="skills-groups">
+      <div class="fade-in">
+        <h4 style="margin-bottom:20px;">Strategy & Communications</h4>
+        <div class="skill-item">Content strategy</div>
+        <div class="skill-item">Digital marketing</div>
+        <div class="skill-item">Community management</div>
+        <div class="skill-item">Public relations</div>
+        <div class="skill-item">Creative writing</div>
+        <div class="skill-item">Copywriting</div>
+        <div class="skill-item">Storytelling</div>
+      </div>
+      <div class="fade-in">
+        <h4 style="margin-bottom:20px;">Audiovisual Production</h4>
+        <div class="skill-item">Direction & production</div>
+        <div class="skill-item">Photography & editing</div>
+        <div class="skill-item">Scriptwriting</div>
+        <div class="skill-item">Adobe Premiere Pro</div>
+        <div class="skill-item">Adobe After Effects & Motion Graphics</div>
+        <div class="skill-item">Adobe Audition</div>
+        <div class="skill-item">Final Cut Pro</div>
+        <div class="skill-item">CapCut</div>
+      </div>
+      <div class="fade-in">
+        <h4 style="margin-bottom:20px;">Design & Digital Tools</h4>
+        <div class="skill-item">Adobe Illustrator</div>
+        <div class="skill-item">Adobe Photoshop</div>
+        <div class="skill-item">Canva</div>
+        <div class="skill-item">Figma & UX/UI</div>
+        <div class="skill-item">WordPress & Elementor</div>
+        <div class="skill-item">Claude</div>
+        <div class="skill-item">Gemini</div>
+        <div class="skill-item">Nano Banana Pro (AI Image Generation)</div>
+      </div>
+      <div class="fade-in">
+        <h4 style="margin-bottom:20px;">Analytics & Ads</h4>
+        <div class="skill-item">Meta Ads</div>
+        <div class="skill-item">Google Ads</div>
+        <div class="skill-item">Google Analytics</div>
+        <div class="skill-item">Metricool</div>
+        <div class="skill-item">Google Tag Manager</div>
+        <div class="skill-item">Google Analytics 4 (GA4)</div>
+        <div class="skill-item">Mailchimp</div>
+        <div class="skill-item">HubSpot</div>
+      </div>
+      <div class="fade-in">
+        <h4 style="margin-bottom:20px;">Project Management</h4>
+        <div class="skill-item">Trello</div>
+        <div class="skill-item">Asana</div>
+        <div class="skill-item">Notion</div>
+        <div class="skill-item">Google Workspace</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <h2>Let's Work Together</h2>
+      <p>Available for communications, content, and audiovisual production projects.</p>
+      <div class="contact-links">
+        <a class="contact-btn" href="https://wa.link/wh0rks" target="_blank">WhatsApp ↗</a>
+        <a class="contact-btn contact-btn-outline" href="mailto:qsolangedelrosario@gmail.com">Email ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 Solange Quispe &mdash; Lima, Peru</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')});},{threshold:.12});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Highlight active nav links
+const navLinks = document.querySelectorAll('.nav-links a:not([target="_blank"])');
+const sections = document.querySelectorAll('section');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= sectionTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').slice(1) === current) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+</body>
+</html>
